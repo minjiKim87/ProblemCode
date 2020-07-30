@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-//깃헙업데이트수정하고싶은데
+
 int fibo(int n);
 
 int main(void) {
@@ -35,3 +35,5 @@ int main(void) {
 	}
 
 }
+
+//위의 건 동적계획법이 아니었으 

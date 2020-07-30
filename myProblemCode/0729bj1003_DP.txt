@@ -1,0 +1,75 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int fi(int n, int a, int b) {
+    int p = a;
+    int q = b;
+
+    if (n == 0) {
+        printf("0"); p++;
+        return 0;
+    }
+    else if (n == 1) {
+        printf("1"); q++;
+        return 1;
+    }
+    else {
+        return fi(n‐1) + fi(n‐2);
+    }
+}
+
+int main(void) {
+	
+	int T = 0;
+	scanf("%d", &T);
+
+	int arr[T];
+	for (int i = 0; i < T; i++) {
+		scanf("%d", &arr[i]);
+	}
+
+    int a, b = 0;
+    for (int i = 0; i < T; i++) {
+        a = 0; b = 0;
+        fi(arr[i], a, b)
+    }
+}
+
+/*#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int fi(int n, int a, int b) {
+    int p = a;
+    int q = b;
+
+    if (n == 0) {
+        printf("0"); p++;
+        return 0;
+    }
+    else if (n == 1) {
+        printf("1"); q++;
+        return 1;
+    }
+    else {
+        return fi(n‐1) + fi(n‐2);
+    }
+}
+
+int main(void) {
+	
+	int T = 0;
+	scanf("%d", &T);
+
+	int arr[T];
+	for (int i = 0; i < T; i++) {
+		scanf("%d", &arr[i]);
+	}
+
+    int a, b = 0;
+    for (int i = 0; i < T; i++) {
+        a = 0; b = 0;
+        fi(arr[i], a, b)
+    }
+}*/

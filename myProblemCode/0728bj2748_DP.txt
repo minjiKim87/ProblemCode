@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int fibo(int n);
+
+int main(void) {
+	
+	int n;
+	scanf("%d", &n);
+
+	printf("%d", fibo(n));
+
+	switch (n) {
+	case 0 :
+	case 1 :
+		printf("%d", n);
+		break;
+	default :
+		printf("%d", fibo(n));
+		break;
+	}
+
+	return 0;
+
+
+	
+	int fibo(int n) {
+
+	if (n - 1 == 0) {
+		return n;
+	}
+	else {
+		return fibo(n - 1) + fibo(n - 2);
+	}
+
+}
+
+//위의 건 동적계획법이 아니었으 

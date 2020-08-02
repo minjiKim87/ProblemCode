@@ -1,0 +1,67 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int memo[500];
+int arr[9999];
+
+int main(){
+	/*
+	삼각형은 아예 주어지네
+	*/
+
+	int n = 0;
+	scanf("%d", &n);
+
+	int cnt = 0;
+	for (int i = 1; i <= n; i++) {
+		for (int j = 1; j <= i; j++) {
+			scanf("%d", &arr[cnt]);
+			cnt++;
+		}
+		printf("\n");
+	}
+
+	/*
+	첫줄이 단계 1
+	 단계 i 일때 왼쪽으로 가려면 [+i] 오른쪽으로 가려면 [+(i+1)]
+
+	 첫줄이 단계 0이면
+	 +i+1, +i+2
+	 
+	*/
+	memo[0] = arr[0];
+	int tmp = 0; // '나'의 인덱스 저장. 여기서 왼쪽 오른쪽 감
+	int sum = 0;
+
+	for (int i = 0; i < n; i++) {
+		if (arr[tmp + i + 1] <= arr[tmp + i + 2]) {
+			memo[i+1] = arr[tmp + i + 2];
+			tmp = tmp + i + 2;
+		}
+		else {
+			memo[i+1] = arr[tmp + i + 1];
+				tmp = tmp+i + 1;
+		}
+		
+	}
+
+	for (int i = 0; i < n; i++) {
+		sum += memo[i];
+		printf("%d\n", memo[i]);
+	}
+	printf("%d", sum);
+	
+}
+
+/*//이게 아냐! 최종선택 때 가장 커야 해ㅜㅜㅜ
+
+내 방식대로 하면 28인데 처음에 3을 선택하면 최종적으로 30 나와...
+
+ㅣ걸 어케하지
+
+동적계획법이래매 
+
+모든 경우를 다 해본다. 각각매번 두 개의 선택중에 하나인건 틀림 없음...그래서 재귀 같은 거고
+
+근데 그럼 최종 2^( n-1)가지 나오는데*/
